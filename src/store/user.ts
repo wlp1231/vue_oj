@@ -5,17 +5,19 @@ export default {
   state: () => ({
     loginUser: {
       userName: "未登录",
+      role: "",
     },
   }),
   actions: {
     getLoginUser({ commit, state }, payload) {
       // TODO 远程登录
-      commit("updateUser", { userName: "测试者" });
+      commit("updateUser", payload);
+      console.log(payload);
     },
   },
   mutations: {
     updateUser(state, payload) {
-      state.loginUser = payload;
+      state.loginUser = payload.loginUser;
     },
   },
 } as StoreOptions<any>;
